@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="icon" href="img/vue-logo.png">
+
+  <title>Test</title>
+
+
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+
+
+  <link href="css/pagination-style.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/mdi-icons.css">
+</head>
+
+<body>
+
+  <header>
+
+    <div class="navbar navbar-dark bg-dark box-shadow">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <strong>Vuejs TEST</strong>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <main role="main" id="pagination-app">
+    <div class="album py-5 bg-light">
+      <div class="container" v-cloak>
+        <div class="row">
+          <div class="col-md-4" v-for="post in displayedPosts">
+            <div class="card mb-4 box-shadow post-cards">
+              <div class="card-body">
+                <h5 class="capitalize">{{post.Name}}</h5>
+                <p class="card-text">{{post.id}}</p>
+                <p class="card-text">{{post.Survived}}</p>
+                <p class="card-text">{{post.Sex}} / {{post.Age}}</p>
+                <p class="card-text">{{post.Siblings}} / {{post.Parch}}</p>
+                <p class="card-text">{{post.Ticket}} / {{post.Fare}}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="clearfix btn-group col-md-2 offset-md-5">
+          <button type="button" class="btn btn-sm btn-outline-secondary" v-if="page != 1" @click="page--">
+            << </button> <button type="button" class="btn btn-sm btn-outline-secondary" v-for="pageNumber in pages.slice(page-1, page+5)" @click="page = pageNumber"> {{pageNumber}}
+          </button>
+          <button type="button" @click="page++" v-if="page < pages.length" class="btn btn-sm btn-outline-secondary"> >> </button>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <footer class="text-muted">
+    <div class="container">
+    </div>
+  </footer>
+
+  <script src="js/jquery.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/vue.min.js"></script>
+  <script src="js/axios.min.js"></script>
+  <script src="js/pagination.js"></script>
+</body>
+
+</html>
